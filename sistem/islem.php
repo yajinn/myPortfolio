@@ -136,6 +136,10 @@
 			
 		break;
 				
+		case 'giris':
+			echo $kulad." ".$sifre;
+		break;		
+			
         default:
 
 			

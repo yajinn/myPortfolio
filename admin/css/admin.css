@@ -28,7 +28,7 @@ font-weight: bold;
 .ayarlartablo tr td{
 	padding:3px 10px;
 }
-.ayarlartablo tr td input[type=text],input[type=password]{
+.ayarlartablo tr td input[type=text],.ayarlartablo tr td input input[type=password]{
 	border: 1px solid #ccc; width:100%; padding-left:10px; height: 24px; border-radius: 3px;
 }
 .ayarlartablo tr td img{	

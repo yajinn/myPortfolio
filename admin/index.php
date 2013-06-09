@@ -16,10 +16,22 @@
     <script type="text/javascript">
         $(".form").ajaxForm(function(cevap){
             alert(cevap) 
-        })
+        });
+        
+       $(document).ready(function(){
+       		$("#giris-btn").click(function(){
+       			
+       			$.post('<?=URL.'sistem/islem.php'?>',{islem:'giris', kulad:$("#kulad").val(), sifre: $("#sifre").val()},function(response){
+					alert(response);
+				});
+       		})
+
+       });
     </script>
 </head>
 <body>
+	
+	<!--
 	<div class="panel clearfix">
 		<div class="top f18"><h1 style="margin: 40px 20px">Portfolyo Admin Paneli</h1></div>
 		<div class="menu">
@@ -41,5 +53,35 @@
 			<?php require "inc/pager.php"; ?>
 		</div>
 	</div>
+	-->
+	
+	<div>
+		<table width="300" cellpadding="10" cellspacing="10" style="margin: 50px auto;" >
+			<tr>
+				<td colspan="3"> Admin Paneli:</td>
+			</tr>
+			<tr>
+				<td> Kullanıcı Adı</td>
+				<td>:</td>
+				<td><input type="text" style="width: 120px;" id="kulad"/></td>
+			</tr>
+			<tr>
+				<td>Şifre</td>
+				<td>:</td>
+				<td><input type="password" style="width: 120px;" id="sifre"/></td>
+			</tr>
+			<tr>
+				<td colspan="3"> 
+					<div style="margin-top: 20px;" class="clearfix">
+						<a href="javascript:void(0)" id="giris-btn" class="btn-kaydet fr db"> Giriş</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>
+
+
+
+
