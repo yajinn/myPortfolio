@@ -22,6 +22,10 @@ error_reporting(0);
 		 include('inc/makale_duzenle_sil.php');
 	break;
 	
+	case 'makaleduzenleislem':
+		 include('inc/makale_duzenle.php');
+	break;
+	
 	case 'slideekle':
 		 include('inc/sliderEkle.php');
 	break;

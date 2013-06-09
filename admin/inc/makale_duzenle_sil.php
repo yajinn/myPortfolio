@@ -59,7 +59,7 @@
 			<?=$makale['makaleler_baslik']?><br/><br/>
 			<?=substr($makale['makaleler_icerik'],0,100)?>
 		</td>
-		<td width="100" valign="middle"><a href="">Düzenle</a></td>
+		<td width="100" valign="middle"><a href="index.php?page=makaleduzenleislem&makale_id=<?=$makale['makaleler_id']?>">Düzenle</a></td>
 		<td valign="middle">
 			<a class="sil-btn" href="javascript:void(0)" data-id="<?=$makale['makaleler_id']?>">Sil</a></td>
 	</tr>

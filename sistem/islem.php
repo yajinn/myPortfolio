@@ -61,6 +61,10 @@
 		
         break;
 		
+		case 'sliderguncelle':
+		
+		break;
+				
 		case 'slidersil':
 			$sil = mysql_query("DELETE from slider where slider_id='$id'");
 			if($sil){
@@ -91,6 +95,15 @@
 				echo "hata";
 			}
 			
+		break;
+		
+		case 'makaleguncelle':
+			$guncelle = mysql_query("UPDATE makaleler set makaleler_baslik='$makaleler_baslik', makaleler_icerik='$makaleler_icerik', makaleler_durum='$makaleler_durum' where makaleler_id='$makale_id'");		
+			if($guncelle){
+				echo "Makale Güncellendi";
+			}else{
+				echo "hata!";
+			}			
 		break;
 		
 		case 'calismasil':
