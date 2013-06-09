@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="../assets/js/jquery.form.js"></script>
     <script type="text/javascript">
         $(".form").ajaxForm(function(cevap){
-            alert(cevap)
+            alert(cevap) 
         })
     </script>
 </head>
