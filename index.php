@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="assets/js/site.js"></script>
 	<script type="text/javascript">
 		$(window).load(function() {
-        $('#slider').nivoSlider();
+        	$('#slider').nivoSlider();
     	});
 	</script>
 	
