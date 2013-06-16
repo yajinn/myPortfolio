@@ -41,7 +41,19 @@
 				</ul>
 			</div>
 		</div>
-	
+	<?php 
+		$yazi = "Her şey Php için";
+		//strlen karakter sayısını verir
+		//echo strlen($yazi);
+		
+		//kelimeleri bölerken türkçe karakterlerde sorun çıkarmaz
+		//echo mb_substr($yazi, 0,14,'UTF-8')
+		
+		//explode verilen değeri istediğimiz ahahtara göre parçalar ve sonuç olarak bize dizi döndürür.
+		//$mevyeler ="elma,armut,kel mahmut,kavun "; 
+		//$dilimlendi = explode(",",$mevyeler);
+		
+	?>
 	<!--Slider-->
 	
 		<div class="slider-wrapper theme-default">
