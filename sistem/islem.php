@@ -1,4 +1,5 @@
 <?php
+	
 	require_once 'baglan.php';
 	extract($_REQUEST);
 	switch ($islem) {
@@ -76,8 +77,20 @@
 		break;
 			
 		case 'makaleekle':
-					
-			$kaydet=mysql_query("INSERT INTO makaleler(makaleler_baslik,makaleler_icerik,makaleler_durum) values('$makaleler_baslik','$makaleler_icerik','$makaleler_durum')");
+			//istediğimiz bir değeri istediğimiz başka bir değerle değiştirmemizi sağlar
+			//str_replace($search, $replace, $subject) ;
+			$search ="Matrix";
+			$replace ="Bu filmi çok severim";
+			$subject =$makaleler_baslik;
+			$makaleler_baslik= str_replace($search, $replace, $subject);
+			
+			//strip_tags gönderilen içerikteki html tagleri temizler
+			$makaleler_baslik2=strip_tags($makaleler_baslik);
+			//trim sağ ve soldan boşlukları siler
+			$makaleler_icerik2=trim(strip_tags($makaleler_icerik));
+						 
+						
+			$kaydet=mysql_query("INSERT INTO makaleler(makaleler_baslik,makaleler_icerik,makaleler_durum) values('$makaleler_baslik2','$makaleler_icerik2','$makaleler_durum')");
 			
 			if($kaydet){
 				echo "Kaydedildi";
@@ -137,7 +150,25 @@
 		break;
 				
 		case 'giris':
-			echo $kulad." ".$sifre;
+			// girilen bilgilerdeki tırnakları etkisiz hala getirir  yani tırnakların önüne slash ekler addslashes($str); 
+			// mysql komutu ögeleri siler  mysql_escape_string($unescaped_string);
+			$kulad2=mysql_escape_string($kulad); 
+			$sifre2 = mysql_escape_string($sifre) ;
+			
+			$sorgu = mysql_query("SELECT * from ayarlar where site_admin='$kulad2' and site_pass='$sifre2'");
+			$kayit = mysql_fetch_assoc($sorgu);
+			if($kayit){
+				echo "Giriş başarılı";
+				$_SESSION['yetkili']=$kayit['site_admin'];
+			}else{
+				echo "Kullanıcı adı yada şifre yanlış";
+			}
+			
+		break;
+		
+		case 'cikis':
+			session_destroy();
+			header("Location:".URL);
 		break;		
 			
         default:

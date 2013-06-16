@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	//bağlantı değişkenleri
 	$host="localhost";
 	$user="root";

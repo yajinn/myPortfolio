@@ -20,18 +20,25 @@
         
        $(document).ready(function(){
        		$("#giris-btn").click(function(){
-       			
        			$.post('<?=URL.'sistem/islem.php'?>',{islem:'giris', kulad:$("#kulad").val(), sifre: $("#sifre").val()},function(response){
 					alert(response);
+					location.reload();
 				});
        		})
-
+       		
        });
     </script>
 </head>
 <body>
+<?php 
+	if($_SESSION['yetkili']){ 
+?>
+	<div style="width: 100%; height: 30px; background: #CCCCCC">
+		<div class="p20">
+		  	<?php echo "Merhaba ".$_SESSION['yetkili'] ?>  <a href="<?=URL?>sistem/islem.php?islem=cikis">Çıkış</a>
+		</div>
+	</div>
 	
-	<!--
 	<div class="panel clearfix">
 		<div class="top f18"><h1 style="margin: 40px 20px">Portfolyo Admin Paneli</h1></div>
 		<div class="menu">
@@ -53,8 +60,10 @@
 			<?php require "inc/pager.php"; ?>
 		</div>
 	</div>
-	-->
 	
+	<?php 
+		}else{
+	?>
 	<div>
 		<table width="300" cellpadding="10" cellspacing="10" style="margin: 50px auto;" >
 			<tr>
@@ -79,6 +88,9 @@
 			</tr>
 		</table>
 	</div>
+	<?php 	
+		}
+	?>
 </body>
 </html>
 
