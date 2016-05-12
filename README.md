@@ -1,4 +1,4 @@
-portfolyo
+myPortolio
 =========
 
-portfolyo
+You can create your own personal portfolio page
